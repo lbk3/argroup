@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - distanceTxt
+  - refDistanceTxt
+  - CoordsTxt
   layers:
   - Default
   - TransparentFX
