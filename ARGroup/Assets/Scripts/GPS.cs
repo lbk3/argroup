@@ -21,13 +21,13 @@ public class GPS : MonoBehaviour
     private double referenceLongitude;
     private double referenceDistance;
 
-    private double distFrom3dModel_lat;
+	private double distFrom3dModel_lat;
     private double distFrom3dModel_lon;
 
     private void Start()
     {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(objAR);
         objAR.SetActive(false);
         referenceLatitude = 55.9287109;
         referenceLongitude = -3.4948288;
@@ -41,18 +41,17 @@ public class GPS : MonoBehaviour
 
     private void Update()
     {
-        latitude = Input.location.lastData.latitude;
-        longitude = Input.location.lastData.longitude;
+		
+		latitude = Input.location.lastData.latitude;
+		longitude = Input.location.lastData.longitude;
 
-        coordinates.text = "Current (Lat,Lon): " + GPS.Instance.latitude.ToString() + " - " + GPS.Instance.longitude.ToString();
-        if (CloseEnoughForMe(Instance.latitude, referenceLatitude, referenceDistance) && CloseEnoughForMe(Instance.longitude, referenceLongitude, referenceDistance))
-        {
-            objAR.SetActive(true);
-        }
-        else
-        {
-            objAR.SetActive(false);
-        }
+		coordinates.text = "Current (Lat,Lon): " + GPS.Instance.latitude.ToString () + " - " + GPS.Instance.longitude.ToString ();
+		if (CloseEnoughForMe (Instance.latitude, referenceLatitude, referenceDistance) && CloseEnoughForMe (Instance.longitude, referenceLongitude, referenceDistance)) {
+			objAR.SetActive (true);
+		} else {	
+			objAR.SetActive (false);		
+		}
+
     }
 
     private bool CloseEnoughForMe(double value1, double value2, double acceptableDifference)

@@ -53,7 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\ARScript.cs" />
-     <Compile Include="Assets\Scripts\Augmented.cs" />
+     <Compile Include="Assets\Scripts\AugmentedScript.cs" />
      <Compile Include="Assets\Scripts\GetTours.cs" />
      <Compile Include="Assets\Scripts\GPS.cs" />
      <Compile Include="Assets\Scripts\LoadPois.cs" />

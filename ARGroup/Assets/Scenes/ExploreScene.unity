@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cd85dd30fbc094a8daf7f0728d70bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance_gameobject: {fileID: 1861152903}
 --- !u!114 &2043559592
 MonoBehaviour:
   m_ObjectHideFlags: 0
