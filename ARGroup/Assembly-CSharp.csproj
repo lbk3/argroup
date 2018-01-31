@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FD7B6C11-2DF1-CE50-FF17-9D91F729D0E5}</ProjectGuid>
+    <ProjectGuid>{48D52867-A4F1-ED91-F6DB-F853C3ACF79D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,7 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\ARScript.cs" />
+     <Compile Include="Assets\Scripts\Augmented.cs" />
+     <Compile Include="Assets\Scripts\GetTours.cs" />
+     <Compile Include="Assets\Scripts\GPS.cs" />
+     <Compile Include="Assets\Scripts\LoadPois.cs" />
      <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Scripts\LoadTours.cs" />
+     <Compile Include="Assets\Scripts\Spin.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultSmartTerrainEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />

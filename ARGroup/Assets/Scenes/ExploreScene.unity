@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520f1ca2b3869fe42aaaa5a391a26f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  latitude: 0
-  longitude: 0
+  latitude: 55.9573
+  longitude: -2.989
   objAR: {fileID: 2043559590}
   coordinates: {fileID: 740075489}
   referenceCoordinates: {fileID: 242056788}
