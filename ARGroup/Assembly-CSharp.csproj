@@ -54,12 +54,14 @@
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\ARScript.cs" />
      <Compile Include="Assets\Scripts\AugmentedScript.cs" />
+     <Compile Include="Assets\Scripts\GetPois.cs" />
      <Compile Include="Assets\Scripts\GetTours.cs" />
      <Compile Include="Assets\Scripts\GPS.cs" />
      <Compile Include="Assets\Scripts\LoadPois.cs" />
      <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
      <Compile Include="Assets\Scripts\LoadTours.cs" />
      <Compile Include="Assets\Scripts\Spin.cs" />
+     <Compile Include="Assets\Scripts\SplitStrings.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultSmartTerrainEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />

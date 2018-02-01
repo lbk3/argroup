@@ -544,8 +544,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 538973278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 355.5, y: 154.5, z: 0}
-  m_LocalScale: {x: 0.321875, y: 0.321875, z: 0.321875}
+  m_LocalPosition: {x: 355.5, y: 178.5, z: 0}
+  m_LocalScale: {x: 0.371875, y: 0.371875, z: 0.371875}
   m_Children:
   - {fileID: 1956386856}
   - {fileID: 1238789528}
@@ -573,6 +573,7 @@ MonoBehaviour:
   tourDescription: {fileID: 1224245459}
   tourDistance: {fileID: 1069863542}
   tourTime: {fileID: 2001425469}
+  tourPois: 
   prefabButton: {fileID: 1374233752}
   ParentPanel: {fileID: 1680364694}
 --- !u!1 &586413808
@@ -1092,13 +1093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec38f44189134aedb41f21b6c6c3d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tours: []
-  tourName: {fileID: 0}
-  tourDescription: {fileID: 0}
-  tourDistance: {fileID: 0}
-  tourTime: {fileID: 0}
-  prefabButton: {fileID: 0}
-  ParentPanel: {fileID: 0}
 --- !u!114 &1238789530
 MonoBehaviour:
   m_ObjectHideFlags: 0
