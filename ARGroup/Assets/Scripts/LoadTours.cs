@@ -11,12 +11,16 @@ public class LoadTours : MonoBehaviour {
 	public Text tourDistance;
 	public Text tourTime;
 	private string toursString;
+	public string tourPois;
 
 	public GameObject prefabButton;
 	public RectTransform ParentPanel;
 
 	string tourNamesLink = "https://punier-boresights.000webhostapp.com/TourData.php";
 	string tourInformationLink = "https://punier-boresights.000webhostapp.com/TourInformation.php";
+	string tourPoisLink = "https://punier-boresights.000webhostapp.com/GetTourPois.php";
+
+	private SplitStrings splitString;
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -40,7 +44,10 @@ public class LoadTours : MonoBehaviour {
 			goButton.SetActive (true);
 
 			Button tempButton = goButton.GetComponent<Button> ();
-			tempButton.GetComponentInChildren<Text>().text = getTourName (tours [i], "Name:");
+
+			splitString = new SplitStrings (tours[i]);
+
+			tempButton.GetComponentInChildren<Text>().text = splitString.splitString ("Name:");
 
 			int tempInt = i + 1;
 
@@ -52,6 +59,7 @@ public class LoadTours : MonoBehaviour {
 	void ButtonClicked(int buttonNo){
 		Debug.Log ("Button clicked = " + buttonNo);
 		StartCoroutine(getTourInformation(buttonNo));
+		StartCoroutine(getTourPois(buttonNo));
 	}
 
 	IEnumerator getTourInformation(int tourId){
@@ -71,11 +79,20 @@ public class LoadTours : MonoBehaviour {
 		tourTime.text = "Est. Time: " + getTours.getTime ();
 	}
 
-	string getTourName(string data, string index){
-		string value = data.Substring (data.IndexOf(index)+index.Length);
-		if (value.Contains ("|")) {
-			value = value.Remove (value.IndexOf ("|"));
+	IEnumerator getTourPois(int tourId){
+		WWWForm form = new WWWForm ();
+
+		form.AddField ("tourIdPost", tourId);
+
+		WWW www = new WWW (tourPoisLink, form);
+
+		yield return www;
+
+		string[] indvPoi = www.text.Split (';');
+
+		for (int i = 0; i < indvPoi.Length - 1; i++) {
+			SplitStrings splitString = new SplitStrings (indvPoi [i]);
+			print(splitString.splitString("Name:"));
 		}
-		return value;
 	}
 }

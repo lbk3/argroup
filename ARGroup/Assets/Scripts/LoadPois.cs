@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class LoadPois : MonoBehaviour {
 
 	public string[] items;
-	public Text poiText;
 	private string poiString;
+
+	private GetPois getPois;
+
+	public GameObject prefabToggle;
+	public RectTransform ParentPanel;
+	public Button showOnMap;
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -16,20 +21,34 @@ public class LoadPois : MonoBehaviour {
 		string itemsDataString = itemsData.text;
 
 		items = itemsDataString.Split (';');
-		for (int i = 0; i < items.Length-1; i++) {
-			print (getDataValue (items [i], "Name:"));
-			poiString = poiString + getDataValue (items [i], "Name:") + "\n";
+
+		for (int i = 0; i < items.Length - 1; i++) {
+			getPois = new GetPois (items [i]);
+
+			GameObject toggleCheckbox = (GameObject)Instantiate (prefabToggle);
+
+			toggleCheckbox.transform.SetParent (ParentPanel, false);
+			toggleCheckbox.transform.localScale = new Vector3 (1, 1, 1);
+			toggleCheckbox.SetActive (true);
+
+			Toggle tempToggle = toggleCheckbox.GetComponent<Toggle> ();
+
+			tempToggle.GetComponentInChildren<Text> ().text = getPois.getName ();
+
+			string tempString = getPois.getId () + "\n"
+								+ getPois.getName () + "\n"
+								+ getPois.getTopic () + "\n"
+								+ getPois.getInformation () + "\n"
+								+ getPois.getLatitude () + "\n"
+								+ getPois.getLongitude () + "\n";
+
+
+			showOnMap.onClick.AddListener (() => ButtonClicked (tempToggle.isOn, tempString));
 		}
-
-		poiText.text = poiString;
-
 	}
 
-	string getDataValue(string data, string index){
-		string value = data.Substring (data.IndexOf(index)+index.Length);
-		if (value.Contains ("|")) {
-			value = value.Remove (value.IndexOf ("|"));
-		}
-		return value;
+	void ButtonClicked(bool b, string s){
+		if(b)
+			print (s);
 	}
 }
