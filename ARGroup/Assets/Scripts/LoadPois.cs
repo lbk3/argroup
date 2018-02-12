@@ -9,10 +9,12 @@ public class LoadPois : MonoBehaviour {
 	private string poiString;
 
 	private GetPois getPois;
+	private GetUserPoiPreferences gupp;
 
 	public GameObject prefabToggle;
 	public RectTransform ParentPanel;
 	public Button showOnMap;
+	public Button takeMeThere;
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -42,13 +44,24 @@ public class LoadPois : MonoBehaviour {
 								+ getPois.getLatitude () + "\n"
 								+ getPois.getLongitude () + "\n";
 
+			string poiId = getPois.getId ();
+
+			gupp = new GetUserPoiPreferences ();
 
 			showOnMap.onClick.AddListener (() => ButtonClicked (tempToggle.isOn, tempString));
+			takeMeThere.onClick.AddListener(() => getUserPois (tempToggle.isOn, poiId));
 		}
 	}
 
 	void ButtonClicked(bool b, string s){
-		if(b)
+		if (b) {
 			print (s);
+		}
+	}
+
+	void getUserPois(bool isSelected, string id){
+		if (isSelected) {
+			gupp.addPoi (id);
+		}
 	}
 }
