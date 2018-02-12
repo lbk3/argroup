@@ -40,6 +40,6 @@ public class GetTours {
 	}
 
 	public string getEndLong(){
-		return splitString.splitString ("Start Long:");
+		return splitString.splitString ("End Long:");
 	}
 }

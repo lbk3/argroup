@@ -10,17 +10,19 @@ public class LoadTours : MonoBehaviour {
 	public Text tourDescription;
 	public Text tourDistance;
 	public Text tourTime;
-	private string toursString;
 	public string tourPois;
+	private string startLat, startLong, endLat, endLong;
+	private string toursString;
 
 	public GameObject prefabButton;
 	public RectTransform ParentPanel;
+	public Button startTour;
 
 	string tourNamesLink = "https://punier-boresights.000webhostapp.com/TourData.php";
 	string tourInformationLink = "https://punier-boresights.000webhostapp.com/TourInformation.php";
-	string tourPoisLink = "https://punier-boresights.000webhostapp.com/GetTourPois.php";
 
 	private SplitStrings splitString;
+	private GetUserSelectedTour gust;
 
 	// Use this for initialization
 	IEnumerator Start () {
@@ -58,8 +60,8 @@ public class LoadTours : MonoBehaviour {
 
 	void ButtonClicked(int buttonNo){
 		Debug.Log ("Button clicked = " + buttonNo);
+		startTour.onClick.AddListener (() => startTheTour(buttonNo, startLat, startLong, endLat, endLong));
 		StartCoroutine(getTourInformation(buttonNo));
-		StartCoroutine(getTourPois(buttonNo));
 	}
 
 	IEnumerator getTourInformation(int tourId){
@@ -77,22 +79,19 @@ public class LoadTours : MonoBehaviour {
 		tourDescription.text = getTours.getDescription ();
 		tourDistance.text = "Distance: " + getTours.getDistance ();
 		tourTime.text = "Est. Time: " + getTours.getTime ();
+		startLat = getTours.getStartLat ();
+		startLong = getTours.getStartLong ();
+		endLat = getTours.getEndLat ();
+		endLong = getTours.getEndLong ();
 	}
 
-	IEnumerator getTourPois(int tourId){
-		WWWForm form = new WWWForm ();
-
-		form.AddField ("tourIdPost", tourId);
-
-		WWW www = new WWW (tourPoisLink, form);
-
-		yield return www;
-
-		string[] indvPoi = www.text.Split (';');
-
-		for (int i = 0; i < indvPoi.Length - 1; i++) {
-			SplitStrings splitString = new SplitStrings (indvPoi [i]);
-			print(splitString.splitString("Name:"));
-		}
+	void startTheTour(int theTourId, string tourStartLat, string tourStartLong, string tourEndLat, string tourEndLong){
+		print ("Starting tour" + theTourId);
+		gust = new GetUserSelectedTour ();
+		gust.setTourId (theTourId);
+		gust.setStartLat (tourStartLat);
+		gust.setStartLong (tourStartLong);
+		gust.setEndLat (tourEndLat);
+		gust.setEndLong (tourEndLong);
 	}
 }

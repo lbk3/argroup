@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\AugmentedScript.cs" />
      <Compile Include="Assets\Scripts\GetPois.cs" />
      <Compile Include="Assets\Scripts\GetTours.cs" />
+     <Compile Include="Assets\Scripts\GetUserPoiPreferences.cs" />
+     <Compile Include="Assets\Scripts\GetUserSelectedTour.cs" />
      <Compile Include="Assets\Scripts\GPS.cs" />
      <Compile Include="Assets\Scripts\LoadPois.cs" />
      <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
